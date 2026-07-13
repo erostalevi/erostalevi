@@ -2,7 +2,7 @@
 
 **Backend / Full-Stack Developer** — 6+ years building services for banking, fintech, and retail in Chile (Itaú, Scotiabank, Transbank projects). I work mainly in **TypeScript/Node.js (NestJS)** and **C#/.NET**, with production experience on **AWS** and **GCP**.
 
-- 🔭 Currently: freelance full-stack work + finishing my B.Eng. in Computer Engineering (Duoc UC, Dec 2027)
+- 🔭 Currently: freelance full-stack work + finishing my B.Eng. in Computer Science (Duoc UC, Dec 2027)
 - 🧪 Building: local AI inference tooling for Apple Silicon ([Aperture](https://github.com/erostalevi/Aperture))
 - 📱 Shipped: mobile apps published on the App Store and Google Play
 - ☁️ Certified: AWS Cloud Practitioner · Oracle SQL · Oracle PL/SQL
