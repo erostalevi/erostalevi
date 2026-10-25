@@ -115,8 +115,7 @@ I've spent 6+ years building services for banking, fintech and retail in Chile (
 
 |   |   |
 |---|---|
-| 🔭 **Now** | Freelance full-stack work, and finishing my B.Eng. in Computer Science (Duoc UC, Dec 2027) |
-| 📱 **Shipped** | Mobile apps live on the App Store and Google Play |
+| 🔭 **Now** | Working at [ForPay](https://forpay.cl), and finishing my B.Eng. in Computer Science (Duoc UC, Dec 2027) |
 | 🎓 **Certified** | AWS Cloud Practitioner · Oracle SQL · Oracle PL/SQL |
 | 🗣️ **Languages** | Portuguese, Spanish, English (native-level) · Italian (intermediate) |
 
