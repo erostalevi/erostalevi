@@ -6,7 +6,6 @@
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-erosneto-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/erosneto/)
 [![Email](https://img.shields.io/badge/Email-talevineto%40gmail.com-EA4335?style=flat&logo=gmail&logoColor=white)](mailto:talevineto@gmail.com)
-[![X](https://img.shields.io/badge/X-@torytalevi-000000?style=flat&logo=x&logoColor=white)](https://x.com/torytalevi)
 ![Location](https://img.shields.io/badge/Santiago-Chile-2ea44f?style=flat&logo=googlemaps&logoColor=white)
 
 </div>
@@ -37,8 +36,6 @@ The result is a standalone `.app` built from your own copy of the game. Two titl
 ### [⭐ Check out Napple on GitHub →](https://github.com/erostalevi/Napple)
 
 *Architecture, compatibility matrix and how to build it yourself. Stars and feedback are very welcome.*
-
-**Follow the progress, demos and videos on [X → @torytalevi](https://x.com/torytalevi)**
 
 </div>
 
