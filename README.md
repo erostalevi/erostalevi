@@ -1,45 +1,110 @@
-# Hola! I'm Eros 👋
+<div align="center">
 
-**Backend / Full-Stack Developer** — 6+ years building services for banking, fintech, and retail in Chile (Itaú, Scotiabank, Transbank projects). I work mainly in **TypeScript/Node.js (NestJS)** and **C#/.NET**, with production experience on **AWS** and **GCP**. Lately my side projects live closer to the metal: **Rust, Swift, C and Apple Silicon**.
+# Eros Talevi
 
-- 🔭 Currently: freelance full-stack work + finishing my B.Eng. in Computer Science (Duoc UC, Dec 2027)
-- 🧪 Building: a native Apple Silicon runtime for Switch games ([Napple](https://github.com/erostalevi/Napple)), a local-first kanban + Markdown app ([Luau](https://github.com/erostalevi/luau)), and hardware tooling for macOS ([MacHID](https://github.com/erostalevi/MacHID))
-- 📱 Shipped: mobile apps published on the App Store and Google Play
-- ☁️ Certified: AWS Cloud Practitioner · Oracle SQL · Oracle PL/SQL
-- 🌎 Santiago, Chile · Polyglot: native-level Portuguese, Spanish & English · intermediate Italian
+### Backend & full-stack engineer · systems tinkerer
 
-## Featured work
+Six years shipping services for banks, fintechs and retailers in Chile.<br>
+Off the clock, I build native tooling for Apple Silicon.
 
-### [Napple](https://github.com/erostalevi/Napple) — native Apple Silicon runtime for Switch games
-`Rust` `C` `Objective-C` `SwiftUI` `Metal`
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-erosneto-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/erosneto/)
+[![Email](https://img.shields.io/badge/Email-talevineto%40gmail.com-EA4335?style=flat&logo=gmail&logoColor=white)](mailto:talevineto@gmail.com)
+![Location](https://img.shields.io/badge/Santiago-Chile-2ea44f?style=flat&logo=googlemaps&logoColor=white)
 
-Both the Switch and Apple Silicon Macs are ARM64, so instead of emulating, Napple rewrites a game's machine code ahead of time (the few things macOS forbids) and runs it natively. A Horizon HLE runtime answers the console OS calls, and the NVN GPU API is translated to Metal. No JIT. Includes a CLI, a SwiftUI app (Napple Studio) and a tracked compatibility matrix. Early and experimental; you supply your own game and keys.
+</div>
 
-### [Luau](https://github.com/erostalevi/luau) — local-first kanban + Markdown notes
-`Rust` `Tauri 2` `Svelte 5` `SQLite FTS5` · macOS, Windows, Linux
+---
 
-Every card is a plain Markdown file in a folder you own: no accounts, no cloud, no lock-in. ~15 MB app with a live-preview editor, full per-card history with diff and restore, search with a small query language, optional local AI (Apple on-device, Ollama, LM Studio), Jira/Trello/Slack integrations, and EN/ES/PT translations. MIT.
+## 👋 About
 
-### [MacHID](https://github.com/erostalevi/MacHID) — mouse, keyboard & camera settings for macOS
-`Swift` `SwiftUI` `IOKit`
+I'm a **backend / full-stack developer** with 6+ years of experience on banking, fintech and retail projects for **Itaú, Scotiabank and Transbank**. My daily drivers are **TypeScript / Node.js (NestJS)** and **C# / .NET**, deployed on **AWS** and **GCP**.
 
-A free, open source menu bar app for hardware whose vendor software doesn't run on current Macs. Brand-agnostic core with data-driven device definitions and protocol-family drivers (Razer, Logitech, UVC). Lighting, DPI, key remapping, macros, profiles with automatic switching, and a `machid` CLI. Works today on a Razer Huntsman Mini, Logitech G203 and Brio 100. GPLv3.
+On my own time I go lower-level: Rust, C and Swift, mostly on Apple Silicon.
 
-### [Aperture](https://github.com/erostalevi/Aperture) — terminal image generation
-`Python` `PyTorch` `Apple Silicon`
+|   |   |
+|---|---|
+| 🔭 **Now** | Freelance full-stack work, plus finishing my B.Eng. in Computer Science (Duoc UC, Dec 2027) |
+| 🧪 **Building** | [Napple](https://github.com/erostalevi/Napple), a native Apple Silicon runtime for Switch games |
+| 📱 **Shipped** | Mobile apps live on the App Store and Google Play |
+| 🎓 **Certified** | AWS Cloud Practitioner · Oracle SQL · Oracle PL/SQL |
+| 🗣️ **Languages** | Portuguese, Spanish, English (native-level) · Italian (intermediate) |
 
-A fast, local, terminal-native REPL for image generation: load the model once, iterate at the prompt, full control over every parameter. Local SDXL inference, model management, a background job queue and an upscaling pipeline.
+---
 
-### Smaller things
-- [mdma](https://github.com/erostalevi/mdma) — minimal, keyboard-first Markdown editor for macOS (`Swift`)
-- [typpo](https://github.com/erostalevi/typpo) — typing-speed game for the CLI (`Shell`)
+## 🚀 Featured projects
 
-## What I work with
+### 🍎 [Napple](https://github.com/erostalevi/Napple)
+**Turn a Switch game you own into a native Apple Silicon app.**
 
-**Day job:** `TypeScript` `Node.js` `NestJS` `C# / .NET` `React` `PostgreSQL` `Oracle PL/SQL` `Redis` `Docker` `Kubernetes` `AWS` `GCP` `Terraform` `CI/CD`
+![Rust](https://img.shields.io/badge/Rust-000?style=flat&logo=rust&logoColor=white)
+![C](https://img.shields.io/badge/C-00599C?style=flat&logo=c&logoColor=white)
+![Objective-C](https://img.shields.io/badge/Objective--C-438eff?style=flat)
+![SwiftUI](https://img.shields.io/badge/SwiftUI-F05138?style=flat&logo=swift&logoColor=white)
+![Metal](https://img.shields.io/badge/Metal-black?style=flat&logo=apple&logoColor=white)
+![Status](https://img.shields.io/badge/status-early%20%2F%20experimental-yellow?style=flat)
 
-**Side projects:** `Rust` `Swift` `SwiftUI` `C` `Tauri` `Svelte` `Metal` `Python` `PyTorch`
+The Switch and every Apple Silicon Mac are both ARM64, so instead of emulating the console, Napple runs the game's own machine code natively and rewrites ahead of time only what macOS forbids. A Horizon HLE runtime answers the console OS calls, and the GPU API (NVN) is translated to Metal. **No emulator, no JIT.**
 
-## Contact
+- **AArch64 rewriter** for the reserved `x18` register, thread pointer, `svc` calls and timer counters
+- **Horizon kernel + HLE services**: threads, scheduling, memory, IPC, with offline answers for online services
+- **NVN → Metal** with a Maxwell shader-ISA translator
+- **Audio and input** over Core Audio and GameController
+- **Napple Studio**, a SwiftUI app: drop a game on the window, watch the pipeline run, install the result
+- A per-game **compatibility matrix** tracked with evidence
 
-[LinkedIn](https://www.linkedin.com/in/erosneto/) · talevineto@gmail.com
+You bring your own game, keys and firmware; the repo contains none of them.
+
+---
+
+### 🎨 [Aperture](https://github.com/erostalevi/Aperture)
+**A fast, local, terminal-native image generation REPL for Apple Silicon.**
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
+![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat&logo=pytorch&logoColor=white)
+![Apple Silicon](https://img.shields.io/badge/Apple%20Silicon-black?style=flat&logo=apple&logoColor=white)
+
+Load the model once, then iterate at the prompt with full control over every parameter. Local SDXL inference with model management, a background job queue and an upscaling pipeline, all without leaving the terminal.
+
+---
+
+### ⌨️ [typpo](https://github.com/erostalevi/typpo)
+**A simple typing-speed game for the command line.**
+
+![Shell](https://img.shields.io/badge/Shell-4EAA25?style=flat&logo=gnubash&logoColor=white)
+
+A small, fun CLI project for measuring your typing speed.
+
+---
+
+## 🛠️ Tech I use
+
+**Backend & cloud**
+
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=nodedotjs&logoColor=white)
+![NestJS](https://img.shields.io/badge/NestJS-E0234E?style=flat&logo=nestjs&logoColor=white)
+![.NET](https://img.shields.io/badge/.NET-512BD4?style=flat&logo=dotnet&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white)
+![Oracle](https://img.shields.io/badge/Oracle%20PL%2FSQL-F80000?style=flat&logo=oracle&logoColor=white)
+![Redis](https://img.shields.io/badge/Redis-DC382D?style=flat&logo=redis&logoColor=white)
+![AWS](https://img.shields.io/badge/AWS-232F3E?style=flat&logo=amazonwebservices&logoColor=white)
+![GCP](https://img.shields.io/badge/GCP-4285F4?style=flat&logo=googlecloud&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)
+![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=flat&logo=kubernetes&logoColor=white)
+![Terraform](https://img.shields.io/badge/Terraform-7B42BC?style=flat&logo=terraform&logoColor=white)
+
+**Frontend & systems**
+
+![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB)
+![Rust](https://img.shields.io/badge/Rust-000?style=flat&logo=rust&logoColor=white)
+![Swift](https://img.shields.io/badge/Swift-F05138?style=flat&logo=swift&logoColor=white)
+![C](https://img.shields.io/badge/C-00599C?style=flat&logo=c&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
+
+---
+
+<div align="center">
+
+**Let's talk** · [LinkedIn](https://www.linkedin.com/in/erosneto/) · [talevineto@gmail.com](mailto:talevineto@gmail.com)
+
+</div>
