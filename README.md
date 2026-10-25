@@ -18,94 +18,28 @@
 
 ### Turn a Switch game you own into a native Apple Silicon app.
 
-**Ahead-of-time ARM64 rewrite · Horizon HLE · NVN → Metal · no emulator, no JIT**
+**No emulator. No JIT. Just ARM64 running natively on your Mac.**
 
-![Rust](https://img.shields.io/badge/core-Rust%202024-orange?style=flat&logo=rust&logoColor=white)
-![C and Objective-C](https://img.shields.io/badge/runtime-C%20%2B%20Objective--C-blue?style=flat)
+![Rust](https://img.shields.io/badge/core-Rust-orange?style=flat&logo=rust&logoColor=white)
 ![SwiftUI](https://img.shields.io/badge/studio-SwiftUI-F05138?style=flat&logo=swift&logoColor=white)
 ![Metal](https://img.shields.io/badge/GPU-Metal-black?style=flat&logo=apple&logoColor=white)
 ![Status](https://img.shields.io/badge/status-early%20%2F%20experimental-yellow?style=flat)
 
-[**View the repository →**](https://github.com/erostalevi/Napple)
+</div>
+
+The Switch and every Apple Silicon Mac are both ARM64, so instead of emulating the console, Napple runs the game's own machine code **natively** and rewrites ahead of time only what macOS forbids. A Horizon runtime answers the console OS calls, and the GPU API (NVN) is translated to **Metal**.
+
+The result is a standalone `.app` built from your own copy of the game. Two titles already boot to their title screen or early gameplay, and the runtime covers roughly **87%** of the platform surface.
+
+<div align="center">
+
+### [⭐ Check out Napple on GitHub →](https://github.com/erostalevi/Napple)
+
+*Architecture, compatibility matrix and how to build it yourself. Stars and feedback are very welcome.*
 
 </div>
 
-### The idea
-
-The Switch and every Apple Silicon Mac are both **ARM64**. So instead of emulating the console, Napple **runs the game's own machine code natively** and rewrites, ahead of time, only the few things macOS forbids: the reserved `x18` register, the thread-pointer register, `svc` system calls and the timer-counter registers.
-
-Everything the game asks the console OS for is answered by a **Horizon high-level-emulation runtime**, and the GPU API (**NVN**) is translated to **Metal**. The result is a standalone, locally signed `.app` built from your own copy of the game. With no JIT involved, the door also stays open for iOS and iPadOS.
-
-### The pipeline
-
-```
- your files: game (XCI / NSP / NSZ) + prod.keys + firmware
-   │
-   ├─ 1 ingest    container parse, NCA decrypt, ExeFS / RomFS, updates + DLC (BKTR patches)
-   ├─ 2 analyze   NSO load, function discovery, patch-site scan
-   ├─ 3 resolve   signature lookup (known signatures → reverse-engineering fallback)
-   ├─ 4 rewrite   AArch64 rewriter: x18, TPIDR, svc, counters, 4K→16K page issues
-   ├─ 5 package   .app = runtime + per-game patch table
-   │
-   └─ run         loader · Horizon kernel + services · NVN→Metal · audio · input · saves
-```
-
-Per-game knowledge lives only in **data** (signatures, patch tables), never in per-game code branches. Napple is built to be game-agnostic.
-
-### What it does
-
-| | |
-|---|---|
-| ⚡ **Native speed** | Guest code runs directly on the CPU. No interpreter or recompiler at run time. |
-| 🧠 **Horizon kernel + HLE services** | Threads, scheduling, memory, sessions and IPC, plus a broad set of system services, with offline answers for the online ones. |
-| 🎮 **NVN → Metal** | A Maxwell shader-ISA translator, NVN pipeline and format support, MSAA, indirect draws, query objects and more. |
-| 🔊 **Audio and input** | Audio renderer (reverb, delay, compressor, limiter, Opus) over Core Audio. GameController input with rumble, plus keyboard and mouse mapping. |
-| 💾 **Saves, updates and DLC** | Base game, updates and DLC packs merge in any container, in any order. |
-| 🖥️ **Napple Studio** | A SwiftUI app: drop a game on the window, watch the pipeline run, install the result. |
-| 📋 **Compatibility matrix** | Every game and every pipeline stage tracked with evidence. |
-
-### Where it stands
-
-Early and moving fast. Two titles currently boot all the way to their title screen or early gameplay on the runtime; neither is fully playable yet.
-
-The table estimates how much of the Switch platform surface the pipeline and runtime cover (not per-game compatibility):
-
-| Area | Coverage |
-|---|---|
-| CPU: AOT A64 rewrite | 100% |
-| Loader: NSO / NRO / modules / relocations | 100% |
-| Kernel: svcs + scheduling | 99% |
-| IPC: HLE service coverage | 97% |
-| IPC: command depth (implemented vs. stubbed) | 45% |
-| GPU: Maxwell shader ISA | 81% |
-| GPU: NVN API surface | 81% |
-| GPU: formats + pipeline features | 83% |
-| Audio | 94% |
-| Input | 99% |
-| Content: containers, crypto, updates, DLC | 91% |
-| Saves + storage | 100% |
-| Library applets | 48% |
-| Video / media decode | 61% |
-| **Overall** | **≈ 87%** |
-
-Coverage is not compatibility: the long tail of command depth, shader corner cases and GPU behaviour is exactly what real games trip over first.
-
-### Try it
-
-Needs an Apple Silicon Mac, Xcode command line tools, a Rust toolchain, and your own keys and game.
-
-```sh
-cargo build --release -p napple-cli
-make -C runtime && make -C packaging
-studio/build_app.sh                      # optional GUI
-
-target/release/napple ingest <game.xci|.nsp|.nsz> -k prod.keys
-target/release/napple decomp <game> -k prod.keys -o out/ --updates latest --dlc all
-```
-
-### Legal, up front
-
-You need to **own the game** and supply **your own `prod.keys` and firmware**. Nothing is downloaded, bundled or committed, and the repository contains no game bytes, keys or firmware. Builds are for personal use only. Napple is not affiliated with or endorsed by Nintendo.
+<sub>You need to own the game and bring your own keys and firmware; the repo contains none. Not affiliated with or endorsed by Nintendo.</sub>
 
 ---
 
